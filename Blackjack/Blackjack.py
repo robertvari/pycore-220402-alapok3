@@ -27,7 +27,9 @@ class Blackjack:
 
         # setup player hands
         self.ai_player.init_hand(self.deck)
+
         self.player.init_hand(self.deck)
+        self.player.report()
 
         # give bet
         self.table_credits += self.ai_player.give_bet(self._default_bet)
