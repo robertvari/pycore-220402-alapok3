@@ -1,5 +1,6 @@
 import random
 
+
 class Card:
     def __init__(self, name, value):
         self._name = name
@@ -20,6 +21,7 @@ class Card:
 class Deck:
     def __init__(self):
         self._cards = []
+        self.create()
 
     def create(self):
         cards = [
@@ -57,16 +59,6 @@ class Deck:
         self._cards.remove(new_card)
         return new_card
 
+
 if __name__ == "__main__":
     deck = Deck()
-    deck.create()
-    print(deck.cards)
-
-    # drew few cards from deck
-    card1 = deck.draw()
-    card2 = deck.draw()
-    card3 = deck.draw()
-
-    print(card1, card2, card3)
-
-    print(deck.cards)
