@@ -78,7 +78,8 @@ class PlayerBase:
 
 
 class Player(PlayerBase):
-    pass
+    def create(self):
+        self._name = input("What is your name?")
 
 
 class AIPlayer(PlayerBase):
@@ -88,8 +89,11 @@ class AIPlayer(PlayerBase):
 if __name__ == "__main__":
     deck = Deck()
 
-    Robert = Player()
-    John = AIPlayer()
+    player = Player()
+    player.create()
 
-    Robert.report()
-    John.report()
+    ai_player = AIPlayer()
+    ai_player.create()
+
+    player.report()
+    ai_player.report()
