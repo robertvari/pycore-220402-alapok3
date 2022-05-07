@@ -1,3 +1,4 @@
+# define a class
 class Dice:
     # class attributes
     color = "white"
