@@ -100,6 +100,9 @@ class PlayerBase:
     def count_hand(self):
         return sum([card.value for card in self._hand])
 
+    def __str__(self):
+        return self._name
+
 
 class Player(PlayerBase):
     def create(self):
