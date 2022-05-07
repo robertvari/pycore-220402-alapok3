@@ -1,4 +1,5 @@
 class Dice:
+    # class attribute
     allowed_colors = ["red", "white", "blue"]
 
     def __init__(self, color, sides):
