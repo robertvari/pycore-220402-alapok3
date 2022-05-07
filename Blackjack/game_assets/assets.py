@@ -93,6 +93,22 @@ class Player(PlayerBase):
     def create(self):
         self._name = input("What is your name?")
 
+    def draw_card(self, deck):
+        print(f"This is your turn {self._name}")
+        self._show_hand()
+
+        user_input = input("Do you want to draw a card? (y/n)")
+
+        while user_input == "y":
+            self._hand.append(deck.draw())
+            self._show_hand()
+
+            user_input = input("Do you want to draw a card? (y/n)")
+
+    def _show_hand(self):
+        print(f"Your cards: {self._hand}")
+        print(f"Your hand value: {self.count_hand()}")
+
 
 class AIPlayer(PlayerBase):
     pass
@@ -101,8 +117,8 @@ class AIPlayer(PlayerBase):
 if __name__ == "__main__":
     deck = Deck()
 
-    ai_player = AIPlayer()
-    ai_player.create()
-    ai_player.draw_card(deck)
+    player = Player()
+    player.create()
+    player.draw_card(deck)
 
-    ai_player.report()
+    player.report()
