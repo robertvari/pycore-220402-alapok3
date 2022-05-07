@@ -15,7 +15,6 @@ class Person:
         self.name = name
         self.address = address
 
-
 robert = Person("Robert", "Budapest")
 tamas = Person("Tamás", "Pécs")
 Person.race = "animal"
