@@ -73,8 +73,20 @@ class PlayerBase:
 
     def report(self):
         print(f"Name: {self._name}")
-        print(f"Hand: {self._hand}")
+        print(f"Hand: {self._hand} Hand value: {self.count_hand()}")
         print(f"Credits: {self._credits}")
+
+    def draw_card(self, deck):
+        hand_value = self.count_hand()
+
+        while hand_value < 16:
+            self._hand.append(deck.draw())
+            hand_value = self.count_hand()
+
+        print(f"{self._name} finished drawing")
+
+    def count_hand(self):
+        return sum([card.value for card in self._hand])
 
 
 class Player(PlayerBase):
@@ -89,11 +101,8 @@ class AIPlayer(PlayerBase):
 if __name__ == "__main__":
     deck = Deck()
 
-    player = Player()
-    player.create()
-
     ai_player = AIPlayer()
     ai_player.create()
+    ai_player.draw_card(deck)
 
-    player.report()
     ai_player.report()
