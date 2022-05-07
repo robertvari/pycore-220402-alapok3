@@ -60,5 +60,31 @@ class Deck:
         return new_card
 
 
+class PlayerBase:
+    def __init__(self):
+        self._name = None
+        self._hand = []
+        self._credits = random.randint(10, 100)
+
+    def report(self):
+        print(f"Name: {self._name}")
+        print(f"Hand: {self._hand}")
+        print(f"Credits: {self._credits}")
+
+
+class Player(PlayerBase):
+    pass
+
+
+class AIPlayer(PlayerBase):
+    pass
+
+
 if __name__ == "__main__":
     deck = Deck()
+
+    Robert = Player()
+    John = AIPlayer()
+
+    Robert.report()
+    John.report()
