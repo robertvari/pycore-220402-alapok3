@@ -78,19 +78,8 @@ class PlayerBase:
 
 
 class Player(PlayerBase):
-    def __init__(self):
-        super(Player, self).__init__()
-        self._address = None
-    
     def create(self):
         self._name = input("What is your name?")
-        self._address = input("What is your address?")
-
-    def report(self):
-        super().report()
-        print(f"Address: {self._address}")
-
-
 
 
 class AIPlayer(PlayerBase):
