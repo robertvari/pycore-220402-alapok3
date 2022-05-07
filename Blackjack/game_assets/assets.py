@@ -67,8 +67,12 @@ class PlayerBase:
         self._credits = random.randint(10, 100)
 
     def init_hand(self, deck):
+        self._hand = []
         self._hand.append(deck.draw())
         self._hand.append(deck.draw())
+
+    def give_credits(self, credits):
+        self._credits += credits
 
     def give_bet(self, default_bet):
         self._credits -= default_bet
