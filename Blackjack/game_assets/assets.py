@@ -66,6 +66,14 @@ class PlayerBase:
         self._hand = []
         self._credits = random.randint(10, 100)
 
+    def init_hand(self, deck):
+        self._hand.append(deck.draw())
+        self._hand.append(deck.draw())
+
+    def give_bet(self, default_bet):
+        self._credits -= default_bet
+        return default_bet
+
     def create(self):
         first_names = ["Brittney", "Curtis", "Lucas", "Chip", "Simon"]
         last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
@@ -91,7 +99,8 @@ class PlayerBase:
 
 class Player(PlayerBase):
     def create(self):
-        self._name = input("What is your name?")
+        # todo uncomment this: self._name = input("What is your name?")
+        self._name = "Robert Vari"
 
     def draw_card(self, deck):
         print(f"This is your turn {self._name}")
