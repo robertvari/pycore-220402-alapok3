@@ -13,5 +13,30 @@ class Card:
         return self._value
 
 
+class Deck:
+    def __init__(self):
+        self._cards = []
+
+    def create(self):
+        cards = [
+            ["2", 2],
+            ["3", 3],
+            ["4", 4],
+            ["5", 5],
+            ["6", 6],
+            ["7", 7],
+            ["8", 8],
+            ["9", 9],
+            ["10", 10],
+            ["King", 10],
+            ["Queen", 10],
+            ["Jack", 10],
+            ["Ace", 11]
+        ]
+
+        names = ["Heart", "Club", "Diamond", "Spade"]
+
+
 if __name__ == "__main__":
-    card = Card("Club 2", 2)
+    deck = Deck()
+    deck.create()
