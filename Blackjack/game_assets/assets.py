@@ -66,6 +66,11 @@ class PlayerBase:
         self._hand = []
         self._credits = random.randint(10, 100)
 
+    def create(self):
+        first_names = ["Brittney", "Curtis", "Lucas", "Chip", "Simon"]
+        last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
+        self._name = f"{random.choice(first_names)} {random.choice(last_names)}"
+
     def report(self):
         print(f"Name: {self._name}")
         print(f"Hand: {self._hand}")
