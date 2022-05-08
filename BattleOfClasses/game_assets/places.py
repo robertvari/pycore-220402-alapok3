@@ -10,7 +10,7 @@ class PlaceBase:
         self.main_menu()
 
     def main_menu(self):
-        print("This method is not implemented!")
+        print("PlaceBase.main_menu: This method is not implemented!")
 
 
 class Arena(PlaceBase):

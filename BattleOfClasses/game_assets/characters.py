@@ -74,10 +74,13 @@ class CharacterBase:
     def __repr__(self):
         return self.name
 
+
 class Player(CharacterBase):
     def _create(self):
-        self.name = input("What is your name?")
-        self.race = input(f"What is your race {list(self.races)}")
+        # self.name = input("What is your name?")
+        # self.race = input(f"What is your race {list(self.races)}")
+        self.name = "Robert"
+        self.race = "human"
 
         while self.race.lower() not in self.races:
             self.race = input(f"What is your race {list(self.races)}")
