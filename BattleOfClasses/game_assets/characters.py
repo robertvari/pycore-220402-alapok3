@@ -24,8 +24,16 @@ class CharacterBase:
         self.right_hand = None
         self.left_hand = None
 
+        self._create()
+
     def _create(self):
-        pass
+        self.name = self.get_fantasy_name()
+        self.race = random.choice(list(self.races))
+
+        self.strength = self.races[self.race]["strength"]
+        self.max_HP = self.races[self.race]["max_HP"]
+        self.current_HP = self.max_HP
+        self.max_weight = self.races[self.race]["max_weight"]
 
     @staticmethod
     def get_fantasy_name():
@@ -42,6 +50,21 @@ class CharacterBase:
                   'wain', 'wan', 'win', 'wise', 'ya']
 
         return f"{random.choice(FIRST)}{random.choice(SECOND)}"
+
+    def show_stats(self):
+        print("-"*50)
+        print(f"Name: {self.name}")
+        print(f"Race: {self.race}")
+        print(f"Golds: {self.golds}")
+        print(f"max_weight: {self.max_weight}")
+        print(f"inventory: {self.inventory}")
+        print(f"strength: {self.strength}")
+        print(f"max_HP: {self.max_HP}")
+        print(f"current_HP: {self.current_HP}")
+        print(f"current_level: {self.current_level}")
+        print(f"right_hand: {self.right_hand}")
+        print(f"left_hand: {self.left_hand}")
+        print("-" * 50)
 
 
 class Player(CharacterBase):
@@ -60,5 +83,5 @@ if __name__ == "__main__":
     enemy = Enemy()
     bartender = NPC()
 
-    print(enemy)
-    print(bartender)
+    enemy.show_stats()
+    bartender.show_stats()
