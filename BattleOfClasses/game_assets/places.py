@@ -61,8 +61,26 @@ class Tavern(PlaceBase):
     def shop_menu(self):
         self.game.clear_screen()
         print(f"You have {self.player.golds} golds.")
+        print("-" * 50)
 
         for index, item in enumerate(self.hopping_list):
             print(f"{index} {item}")
 
-        player_input = input()
+        print("-"*50)
+        print(f"{index +1} Back to main menu")
+
+        player_input = int(input())
+
+        if player_input == index + 1:
+            self.game.main_menu()
+
+        chosen_item = self.hopping_list[player_input]
+        if chosen_item.price > self.player.golds:
+            print(f"You don't have enough golds to buy a: {chosen_item.name}")
+            input("Press Enter to continue...")
+            self.shop_menu()
+
+        self.player.buy(chosen_item)
+
+        input("Press Enter to continue...")
+        self.main_menu()

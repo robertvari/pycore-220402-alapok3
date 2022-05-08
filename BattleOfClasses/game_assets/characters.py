@@ -87,6 +87,13 @@ class Player(CharacterBase):
 
         self._setup_stats()
 
+    def buy(self, item):
+        self.inventory.append(item)
+        self.golds -= item.price
+
+        print(f"My inventory: {self.inventory}")
+        print(f"My golds: {self.golds}")
+
 
 class Enemy(CharacterBase):
     pass
