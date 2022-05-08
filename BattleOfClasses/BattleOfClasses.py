@@ -1,8 +1,12 @@
 import os
+from game_assets.places import Arena, Tavern
 
 
 class BattleOfClasses:
     def __init__(self):
+        self.arena = Arena()
+        self.tavern = Tavern()
+
         self._intro()
 
     @staticmethod
