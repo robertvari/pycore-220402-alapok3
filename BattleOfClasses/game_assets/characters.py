@@ -129,7 +129,7 @@ class Player(CharacterBase):
 
             if player_input != index+1:
                 chosen_item = self.inventory[int(player_input)]
-                print(f"You use {chosen_item}")
+                chosen_item.use(self)
 
         input("Press Enter to continue")
         attack_strength = random.randint(0, self.strength)

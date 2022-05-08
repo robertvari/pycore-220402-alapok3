@@ -4,6 +4,9 @@ class ItemBase:
         self.price = price
         self.weight = weight
 
+    def use(self, player):
+        print(f"ItemBase: {player} using {self.name}")
+
     def __str__(self):
         return f"{self.name} Price: {self.price} Wight: {self.weight}"
 
@@ -12,11 +15,14 @@ class ItemBase:
 
 
 class CommonItem(ItemBase):
-    pass
+    def use(self, player):
+        print(f"{player} using {self.name} which heals {100}")
+        player.current_HP += 100
 
 
 class Weapon(ItemBase):
-    pass
+    def use(self, player):
+        print(f"{player} using {self.name} which gives +{100} strength")
 
 
 if __name__ == "__main__":
