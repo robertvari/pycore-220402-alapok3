@@ -1,0 +1,5 @@
+class BattleOfClasses:
+    pass
+
+
+BattleOfClasses()
