@@ -1,3 +1,6 @@
+import random
+
+
 class CharacterBase:
     races = {
         "human": {"strength": 50, "max_HP": 100, "max_weight": 50},
@@ -7,7 +10,19 @@ class CharacterBase:
     }
 
     def __init__(self):
-        pass
+        self.name = None
+        self.race = None
+        self.golds = random.randint(0, 100)
+        self.max_weight = 0
+        self.inventory = []
+
+        self.strength = 0
+        self.max_HP = 0
+        self.current_HP = 0
+        self.current_level = 1
+
+        self.right_hand = None
+        self.left_hand = None
 
 
 class Player(CharacterBase):
