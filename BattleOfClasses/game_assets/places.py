@@ -14,8 +14,32 @@ class PlaceBase:
 
 
 class Arena(PlaceBase):
-    pass
+    def main_menu(self):
+        print("1. Fight")
+        print("2. Go back to the street")
+
+        player_input = input()
+
+        if player_input == "2":
+            pass
+        else:
+            self.start_fight()
+
+    def start_fight(self):
+        print("Fight!!!")
 
 
 class Tavern(PlaceBase):
-    pass
+    def main_menu(self):
+        print("1. Buy something")
+        print("2. Go back to the street")
+
+        player_input = input()
+
+        if player_input == "2":
+            pass
+        else:
+            self.shop_menu()
+
+    def shop_menu(self):
+        print("Shopping list...")
