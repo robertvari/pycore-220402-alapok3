@@ -1,3 +1,6 @@
+from game_assets.items import CommonItem, Weapon
+
+
 class PlaceBase:
     def __init__(self, name, game):
         self.name = name
@@ -32,6 +35,16 @@ class Arena(PlaceBase):
 
 
 class Tavern(PlaceBase):
+    def __init__(self, name, game):
+        super().__init__(name, game)
+        self.hopping_list = [
+            Weapon("Sword", 20, 10),
+            Weapon("Hammer", 30, 20),
+            CommonItem("Bread", 5, 3),
+            CommonItem("Milk", 3, 2),
+            CommonItem("Cheese", 10, 3)
+        ]
+
     def main_menu(self):
         self.game.clear_screen()
 
@@ -46,4 +59,10 @@ class Tavern(PlaceBase):
             self.shop_menu()
 
     def shop_menu(self):
-        print("Shopping list...")
+        self.game.clear_screen()
+        print(f"You have {self.player.golds} golds.")
+
+        for index, item in enumerate(self.hopping_list):
+            print(f"{index} {item}")
+
+        player_input = input()
