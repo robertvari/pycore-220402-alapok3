@@ -57,11 +57,15 @@ class Arena(PlaceBase):
 
             if not enemy.alive:
                 winner = self.player
+                self.player.golds += enemy.golds
+                print(f"{self.player} gets {enemy.golds}")
                 break
 
             time.sleep(1)
 
         print(f"The winner is: {winner}")
+        input("Press Enter to continue...")
+        self.game.main_menu()
 
 
 class Tavern(PlaceBase):
