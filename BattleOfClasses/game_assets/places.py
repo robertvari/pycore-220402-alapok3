@@ -63,6 +63,7 @@ class Tavern(PlaceBase):
         print(f"You have {self.player.golds} golds.")
         print("-" * 50)
 
+        index = 0
         for index, item in enumerate(self.hopping_list):
             print(f"{index} {item}")
 

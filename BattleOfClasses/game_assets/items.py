@@ -7,6 +7,9 @@ class ItemBase:
     def __str__(self):
         return f"{self.name} Price: {self.price} Wight: {self.weight}"
 
+    def __repr__(self):
+        return self.name
+
 
 class CommonItem(ItemBase):
     pass
