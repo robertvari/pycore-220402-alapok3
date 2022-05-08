@@ -112,6 +112,29 @@ class Player(CharacterBase):
         print(f"My inventory: {self.inventory}")
         print(f"My golds: {self.golds}")
 
+    def attack(self, other):
+        print("-"*50)
+        print(f"You are attacking {other}")
+        print(f"Your current HP: {self.current_HP}")
+
+        if self.inventory:
+            print(f"Inventory: {self.inventory}")
+            print("Use something from your inventory")
+            for index, item in enumerate(self.inventory):
+                print(f"{index} use {item.name}")
+
+            print(f"{index+1} Attack")
+
+            player_input = int(input())
+
+            if player_input != index+1:
+                chosen_item = self.inventory[int(player_input)]
+                print(f"You use {chosen_item}")
+
+        input("Press Enter to continue")
+        attack_strength = random.randint(0, self.strength)
+        other.apply_damage(attack_strength)
+
 
 class Enemy(CharacterBase):
     pass
