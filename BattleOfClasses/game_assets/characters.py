@@ -29,7 +29,9 @@ class CharacterBase:
     def _create(self):
         self.name = self.get_fantasy_name()
         self.race = random.choice(list(self.races))
+        self._setup_stats()
 
+    def _setup_stats(self):
         self.strength = self.races[self.race]["strength"]
         self.max_HP = self.races[self.race]["max_HP"]
         self.current_HP = self.max_HP
@@ -68,7 +70,14 @@ class CharacterBase:
 
 
 class Player(CharacterBase):
-    pass
+    def _create(self):
+        self.name = input("What is your name?")
+        self.race = input(f"What is your race {list(self.races)}")
+
+        while self.race.lower() not in self.races:
+            self.race = input(f"What is your race {list(self.races)}")
+
+        self._setup_stats()
 
 
 class Enemy(CharacterBase):
@@ -82,6 +91,8 @@ class NPC(CharacterBase):
 if __name__ == "__main__":
     enemy = Enemy()
     bartender = NPC()
+    player = Player()
 
     enemy.show_stats()
     bartender.show_stats()
+    player.show_stats()
