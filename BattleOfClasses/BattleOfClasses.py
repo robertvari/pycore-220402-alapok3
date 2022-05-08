@@ -25,13 +25,17 @@ class BattleOfClasses:
         print("Where do you want to go?")
         print("1. Tavern")
         print("2. Arena")
+        print("3. Exit Game")
 
         player_input = input()
 
         if player_input == "1":
             self.tavern.enter(self.player)
-        else:
+        elif player_input == "2":
             self.arena.enter(self.player)
+        else:
+            self.clear_screen()
+            exit()
 
     def _intro(self):
         self.clear_screen()

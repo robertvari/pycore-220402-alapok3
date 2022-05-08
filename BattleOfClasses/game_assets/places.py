@@ -16,6 +16,7 @@ class PlaceBase:
 
 class Arena(PlaceBase):
     def main_menu(self):
+        self.game.clear_screen()
         print("1. Fight")
         print("2. Go back to the street")
 
@@ -32,6 +33,8 @@ class Arena(PlaceBase):
 
 class Tavern(PlaceBase):
     def main_menu(self):
+        self.game.clear_screen()
+
         print("1. Buy something")
         print("2. Go back to the street")
 
