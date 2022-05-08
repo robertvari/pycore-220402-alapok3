@@ -1,4 +1,7 @@
+import random, time
+
 from game_assets.items import CommonItem, Weapon
+from game_assets.characters import Enemy
 
 
 class PlaceBase:
@@ -18,6 +21,12 @@ class PlaceBase:
 
 
 class Arena(PlaceBase):
+    def __init__(self, name, game):
+        super(Arena, self).__init__(name, game)
+        self.enemy_list = []
+        for _ in range(20):
+            self.enemy_list.append(Enemy())
+
     def main_menu(self):
         self.game.clear_screen()
         print("1. Fight")
@@ -31,7 +40,28 @@ class Arena(PlaceBase):
             self.start_fight()
 
     def start_fight(self):
-        print("Fight!!!")
+        self.game.clear_screen()
+
+        enemy = random.choice(self.enemy_list)
+
+        winner = None
+        while True:
+            enemy.attack(self.player)
+
+            if not self.player.alive:
+                winner = enemy
+                break
+            time.sleep(1)
+
+            self.player.attack(enemy)
+
+            if not enemy.alive:
+                winner = self.player
+                break
+
+            time.sleep(1)
+
+        print(f"The winner is: {winner}")
 
 
 class Tavern(PlaceBase):

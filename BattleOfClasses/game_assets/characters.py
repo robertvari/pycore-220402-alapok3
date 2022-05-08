@@ -68,6 +68,24 @@ class CharacterBase:
         print(f"left_hand: {self.left_hand}")
         print("-" * 50)
 
+    @property
+    def alive(self):
+        return self.current_HP > 0
+
+    def attack(self, other):
+        print(f"{self.name} attacks {other}")
+
+        attack_strength = random.randint(0, self.strength)
+
+        if not attack_strength:
+            print(f"{self.name} misses {other}")
+        else:
+            print(f"{self.name} hits {other} with {attack_strength} strength.")
+            other.apply_damage(attack_strength)
+
+    def apply_damage(self, damage):
+        self.current_HP -= damage
+
     def __str__(self):
         return self.name
 
