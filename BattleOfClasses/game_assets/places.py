@@ -1,6 +1,7 @@
 class PlaceBase:
-    def __init__(self, name):
+    def __init__(self, name, game):
         self.name = name
+        self.game = game
         self.player = None
 
     def enter(self, player):
@@ -21,7 +22,7 @@ class Arena(PlaceBase):
         player_input = input()
 
         if player_input == "2":
-            pass
+            self.game.main_menu()
         else:
             self.start_fight()
 
@@ -37,7 +38,7 @@ class Tavern(PlaceBase):
         player_input = input()
 
         if player_input == "2":
-            pass
+            self.game.main_menu()
         else:
             self.shop_menu()
 
