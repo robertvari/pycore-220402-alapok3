@@ -1,17 +1,37 @@
 import os
 from game_assets.places import Arena, Tavern
+from game_assets.characters import Player
 
 
 class BattleOfClasses:
     def __init__(self):
+        self._intro()
+        self.player = Player()
+
         self.arena = Arena()
         self.tavern = Tavern()
 
-        self._intro()
+        self.main_menu()
 
     @staticmethod
     def clear_screen():
         os.system("cls" if os.name == "nt" else "clear")
+
+    def main_menu(self):
+        self.clear_screen()
+
+        print(f"Wellcome in this small town {self.player}")
+        print("There is a tavern on the right and an arena on the left.")
+        print("Where do you want to go?")
+        print("1. Tavern")
+        print("2. Arena")
+
+        player_input = input()
+
+        if player_input == "1":
+            self.tavern.enter(self.player)
+        else:
+            self.arena.enter(self.player)
 
     def _intro(self):
         self.clear_screen()

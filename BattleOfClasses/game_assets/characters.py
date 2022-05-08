@@ -68,6 +68,11 @@ class CharacterBase:
         print(f"left_hand: {self.left_hand}")
         print("-" * 50)
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
 class Player(CharacterBase):
     def _create(self):
