@@ -8,8 +8,8 @@ class BattleOfClasses:
         self._intro()
         self.player = Player()
 
-        self.arena = Arena()
-        self.tavern = Tavern()
+        self.arena = Arena("Arena")
+        self.tavern = Tavern("Black Horse Tavern")
 
         self.main_menu()
 
