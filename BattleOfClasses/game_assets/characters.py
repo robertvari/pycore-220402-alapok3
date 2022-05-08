@@ -98,7 +98,7 @@ class Player(CharacterBase):
         # self.name = input("What is your name?")
         # self.race = input(f"What is your race {list(self.races)}")
         self.name = "Robert"
-        self.race = "human"
+        self.race = "ork"
 
         while self.race.lower() not in self.races:
             self.race = input(f"What is your race {list(self.races)}")
@@ -122,10 +122,27 @@ class NPC(CharacterBase):
 
 
 if __name__ == "__main__":
-    enemy = Enemy()
-    bartender = NPC()
-    player = Player()
+    from game_assets.items import Weapon, CommonItem
 
-    enemy.show_stats()
-    bartender.show_stats()
-    player.show_stats()
+    enemy = Enemy()
+    player = Player()
+    player.inventory = [
+        Weapon("Sword", 10, 10),
+        CommonItem("Cheese", 10, 10)
+    ]
+
+    winner = None
+    while True:
+        enemy.attack(player)
+
+        if not player.alive:
+            winner = enemy
+            break
+
+        player.attack(enemy)
+
+        if not enemy.alive:
+            winner = player
+            break
+
+    print(f"The winner is: {winner}")
