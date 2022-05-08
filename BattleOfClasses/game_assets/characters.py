@@ -133,6 +133,9 @@ class Player(CharacterBase):
 
         input("Press Enter to continue")
         attack_strength = random.randint(0, self.strength)
+        if self.right_hand:
+            attack_strength += self.right_hand.attr_modifier
+
         other.apply_damage(attack_strength)
 
 
